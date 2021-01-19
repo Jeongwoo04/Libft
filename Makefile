@@ -6,7 +6,7 @@
 #    By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 22:56:57 by jeson             #+#    #+#              #
-#    Updated: 2021/01/05 22:57:24 by jeson            ###   ########.fr        #
+#    Updated: 2021/01/19 14:18:14 by jeson            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,52 +17,41 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES = ft_memset \
-		ft_bzero \
-		ft_memcpy \
-		ft_memccpy \
-		ft_memmove \
-		ft_memchr \
-		ft_memcmp \
-		ft_strlen \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_strchr \
-		ft_strrchr \
-		ft_strnstr \
-		ft_strncmp \
-		ft_atoi \
-		ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_toupper \
-		ft_tolower \
-		ft_calloc \
-		ft_strdup \
-		ft_substr \
-		ft_strjoin \
-		ft_strtrim \
-		ft_split \
-		ft_itoa \
-		ft_strmapi \
-		ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
-		ft_strtok \
-		ft_strcmp \
+FILES = ft_atoi\
+		ft_bzero\
+		ft_calloc\
+		ft_isalnum\
+		ft_isalpha\
+		ft_isascii\
+		ft_isdigit\
+		ft_isprint\
+		ft_itoa\
+		ft_memccpy\
+		ft_memchr\
+		ft_memcmp\
+		ft_memcpy\
+		ft_memmove\
+		ft_memset\
+		ft_putchar_fd\
+		ft_putendl_fd\
+		ft_putnbr_fd\
+		ft_putstr_fd\
+		ft_split\
+		ft_strchr\
+		ft_strdup\
+		ft_strjoin\
+		ft_strlcat\
+		ft_strlcpy\
+		ft_strlen\
+		ft_strmapi\
+		ft_strncmp\
+		ft_strnstr\
+		ft_strrchr\
+		ft_strtrim\
+		ft_substr\
+		ft_tolower\
+		ft_toupper\
 
-FILES_B = 	ft_lstnew \
-	  		ft_lstadd_front \
-	  		ft_lstsize \
-	  		ft_lstlast \
-	  		ft_lstadd_back \
-	  		ft_lstdelone \
-	  		ft_lstclear \
-	  		ft_lstiter \
-	  		ft_lstmap
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

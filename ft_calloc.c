@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 22:49:40 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 12:44:33 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/19 14:58:12 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 void				*ft_calloc(size_t cnt, size_t size)
 {
-	unsigned int	i;
-	char			*dst;
+	const size_t	total_size = cnt * size;
+	void			*res;
 
-	if (!(dst = malloc(sizeof(size) * cnt)))
+	if (!(res = malloc(total_size)))
 		return (NULL);
-	i = 0;
-	while (i < (size * cnt))
-	{
-		dst[i] = 0;
-		i++;
-	}
-	return ((void *)dst);
+	ft_bzero(res, total_size);
+	return (res);
 }

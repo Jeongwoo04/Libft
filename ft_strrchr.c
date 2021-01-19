@@ -6,26 +6,28 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:59:33 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/05 22:07:45 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/19 15:31:23 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char				*ft_strrchr(const char *s, int c)
 {
-	unsigned int	i;
+	size_t			i;
 	char			*last_position;
+	char			find;
 
-	last_position = NULL;
-	i = 0;
-	while (s[i])
+	last_position = (char *)s;
+	find = (char)c;
+	i = ft_strlen(s);
+	while (i > 0)
 	{
-		if (s[i] == (char)c)
-			last_position = (char *)&s[i];
-		i++;
+		if (last_position[i] == find)
+			return (last_position + i);
+		i--;
 	}
-	if ((char)c == s[i])
-		return ((char *)&s[i]);
-	return (last_position);
+	if (last_position[i] == find)
+		return (last_position);
+	return (NULL);
 }

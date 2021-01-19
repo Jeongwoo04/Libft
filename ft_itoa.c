@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:02:56 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 13:58:37 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/19 14:21:24 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char		*ft_itoa(int n)
 	if (!(c = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	c[len] = '\0';
+	len--;
 	while (len >= 0)
 	{
 		c[len] = '0' + ft_abs(n % 10);
