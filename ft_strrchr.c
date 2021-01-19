@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:59:33 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 15:31:23 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/19 15:46:25 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@ char				*ft_strrchr(const char *s, int c)
 {
 	size_t			i;
 	char			*last_position;
-	char			find;
 
-	last_position = (char *)s;
-	find = (char)c;
-	i = ft_strlen(s);
-	while (i > 0)
+	last_position = NULL;
+	i = 0;
+	while (s[i])
 	{
-		if (last_position[i] == find)
-			return (last_position + i);
-		i--;
+		if (s[i] == (char)c)
+			last_position = (char *)&s[i];
+		i++;
 	}
-	if (last_position[i] == find)
-		return (last_position);
-	return (NULL);
+	if ((char)c == s[i])
+		return ((char *)&s[i]);
+	return (last_position);
 }
