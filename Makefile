@@ -6,7 +6,7 @@
 #    By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 22:56:57 by jeson             #+#    #+#              #
-#    Updated: 2021/01/20 14:44:20 by jeson            ###   ########.fr        #
+#    Updated: 2021/01/20 14:50:53 by jeson            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,8 @@ FILES = ft_atoi\
 	  	ft_lstadd_back\
 	  	ft_lstdelone\
 	  	ft_lstclear\
+		ft_lstiter\
+		ft_lstmap
 
 
 SRCS_DIR = ./
