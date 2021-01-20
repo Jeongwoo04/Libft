@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 13:57:45 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 15:41:16 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/20 21:35:27 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++j])
 		res[i++] = s2[j];
 	res[i] = '\0';
-		return (res);
+	return (res);
 }

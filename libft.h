@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 23:02:30 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/20 14:51:57 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/20 21:36:15 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),
-void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 #endif
