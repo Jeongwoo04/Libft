@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:10:22 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/20 14:13:56 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/20 14:33:56 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void		ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*lst_last;
+	t_list	*tmp;
 
-	if (!lst || !new_node)
+	if (!lst || !new)
 		return ;
 	if (!*lst)
 	{
-		*lst = new_node;
+		*lst = new;
 		return ;
 	}
-	lst_last = ft_lstlast(*lst);
-	new->next = lst_last->next;
-	lst_last->next = new;
+	tmp = ft_lstlast(*lst);
+	tmp->next = new;
 }
