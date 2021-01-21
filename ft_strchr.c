@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:43:34 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 16:03:36 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/21 16:05:34 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		else
+			s++;
 	}
-	if ((char)c == s[i])
-		return ((char *)&s[i]);
-	return (NULL);
+	if (c == '\0')
+		return ((char *)s);
+	else
+		return (NULL);
 }

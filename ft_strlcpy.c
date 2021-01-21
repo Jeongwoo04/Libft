@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:28:06 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 13:30:55 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/21 17:04:36 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 
 	if (!dest || !src)
 		return (0);
-	i = 0;
-	while (src[i])
-		i++;
+	i = ft_strlen(src);
 	if (dstsize == 0)
 		return (i);
 	i = 0;
@@ -30,8 +28,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 		i++;
 	}
 	dest[i] = '\0';
-	i = 0;
-	while (src[i])
-		i++;
+	i = ft_strlen(src);
 	return (i);
 }
