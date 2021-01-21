@@ -6,42 +6,42 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:01:44 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/20 21:33:54 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/21 15:52:32 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char			**ft_malloc_error(char **tab)
+static char			**ft_malloc_error(char **res)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (tab[i])
+	while (res[i])
 	{
-		free(tab[i]);
+		free(res[i]);
 		i++;
 	}
-	free(tab);
+	free(res);
 	return (NULL);
 }
 
-static unsigned int	ft_get_nb_strs(char const *s, char c)
+static unsigned int	ft_cnt_res(char const *s, char c)
 {
 	unsigned int	i;
-	unsigned int	nb_strs;
+	unsigned int	cnt_res;
 
 	if (!s[0])
 		return (0);
 	i = 0;
-	nb_strs = 0;
+	cnt_res = 0;
 	while (s[i] && s[i] == c)
 		i++;
 	while (s[i])
 	{
 		if (s[i] == c)
 		{
-			nb_strs++;
+			cnt_res++;
 			while (s[i] && s[i] == c)
 				i++;
 			continue ;
@@ -49,53 +49,53 @@ static unsigned int	ft_get_nb_strs(char const *s, char c)
 		i++;
 	}
 	if (s[i - 1] != c)
-		nb_strs++;
-	return (nb_strs);
+		cnt_res++;
+	return (cnt_res);
 }
 
-static void			ft_get_next_str(char **next_str, unsigned int *next_str_len,
+static void			ft_get_child(char **res_child, unsigned int *child_len,
 					char c)
 {
 	unsigned int i;
 
-	*next_str += *next_str_len;
-	*next_str_len = 0;
+	*res_child += *child_len;
+	*child_len = 0;
 	i = 0;
-	while (**next_str && **next_str == c)
-		(*next_str)++;
-	while ((*next_str)[i])
+	while (**res_child && **res_child == c)
+		(*res_child)++;
+	while ((*res_child)[i])
 	{
-		if ((*next_str)[i] == c)
+		if ((*res_child)[i] == c)
 			return ;
-		(*next_str_len)++;
+		(*child_len)++;
 		i++;
 	}
 }
 
 char				**ft_split(char const *s, char c)
 {
-	char			**tab;
-	char			*next_str;
-	unsigned int	next_str_len;
-	unsigned int	nb_strs;
+	char			**res;
+	char			*res_child;
+	unsigned int	child_len;
+	unsigned int	cnt_res;
 	unsigned int	i;
 
 	if (!s)
 		return (NULL);
-	nb_strs = ft_get_nb_strs(s, c);
-	if (!(tab = (char **)malloc(sizeof(char *) * (nb_strs + 1))))
+	cnt_res = ft_cnt_res(s, c);
+	if (!(res = (char **)malloc(sizeof(char *) * (cnt_res + 1))))
 		return (NULL);
 	i = 0;
-	next_str = (char *)s;
-	next_str_len = 0;
-	while (i < nb_strs)
+	res_child = (char *)s;
+	child_len = 0;
+	while (i < cnt_res)
 	{
-		ft_get_next_str(&next_str, &next_str_len, c);
-		if (!(tab[i] = (char *)malloc(sizeof(char) * (next_str_len + 1))))
-			return (ft_malloc_error(tab));
-		ft_strlcpy(tab[i], next_str, next_str_len + 1);
+		ft_get_child(&res_child, &child_len, c);
+		if (!(res[i] = (char *)malloc(sizeof(char) * (child_len + 1))))
+			return (ft_malloc_error(res));
+		ft_strlcpy(res[i], res_child, child_len + 1);
 		i++;
 	}
-	tab[i] = NULL;
-	return (tab);
+	res[i] = NULL;
+	return (res);
 }

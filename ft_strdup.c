@@ -6,21 +6,19 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 22:52:05 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/19 13:56:01 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/21 15:59:14 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char				*ft_strdup(const char *s1)
 {
-	char	*new_s1;
-	int		s1_len;
-	int		i;
+	char			*new_s1;
+	unsigned int	s1_len;
+	unsigned int	i;
 
-	s1_len = 0;
-	while (s1[s1_len])
-		s1_len++;
+	s1_len = ft_strlen(s1);
 	if (!(new_s1 = (char *)malloc(sizeof(char) * (s1_len + 1))))
 		return (NULL);
 	i = 0;
