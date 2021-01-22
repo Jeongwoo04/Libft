@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:01:44 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/22 12:42:49 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/22 13:24:05 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_cnt_res(char const *s, char c)
 
 static void	ft_get_child(char **res_child, int *child_len, char c)
 {
-	int		 i;
+	int		i;
 
 	*res_child += *child_len;
 	*child_len = 0;
