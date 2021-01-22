@@ -6,15 +6,15 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:01:44 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 15:52:32 by jeson            ###   ########.fr       */
+/*   Updated: 2021/01/22 12:42:49 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char			**ft_malloc_error(char **res)
+static char	**ft_error(char **res)
 {
-	unsigned int	i;
+	int		i;
 
 	i = 0;
 	while (res[i])
@@ -26,10 +26,10 @@ static char			**ft_malloc_error(char **res)
 	return (NULL);
 }
 
-static unsigned int	ft_cnt_res(char const *s, char c)
+static int	ft_cnt_res(char const *s, char c)
 {
-	unsigned int	i;
-	unsigned int	cnt_res;
+	int		i;
+	int		cnt_res;
 
 	if (!s[0])
 		return (0);
@@ -53,10 +53,9 @@ static unsigned int	ft_cnt_res(char const *s, char c)
 	return (cnt_res);
 }
 
-static void			ft_get_child(char **res_child, unsigned int *child_len,
-					char c)
+static void	ft_get_child(char **res_child, int *child_len, char c)
 {
-	unsigned int i;
+	int		 i;
 
 	*res_child += *child_len;
 	*child_len = 0;
@@ -72,13 +71,13 @@ static void			ft_get_child(char **res_child, unsigned int *child_len,
 	}
 }
 
-char				**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
-	char			**res;
-	char			*res_child;
-	unsigned int	child_len;
-	unsigned int	cnt_res;
-	unsigned int	i;
+	char	**res;
+	char	*res_child;
+	int		child_len;
+	int		cnt_res;
+	int		i;
 
 	if (!s)
 		return (NULL);
@@ -92,7 +91,7 @@ char				**ft_split(char const *s, char c)
 	{
 		ft_get_child(&res_child, &child_len, c);
 		if (!(res[i] = (char *)malloc(sizeof(char) * (child_len + 1))))
-			return (ft_malloc_error(res));
+			return (ft_error(res));
 		ft_strlcpy(res[i], res_child, child_len + 1);
 		i++;
 	}
