@@ -6,7 +6,7 @@
 #    By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 22:56:57 by jeson             #+#    #+#              #
-#    Updated: 2021/01/22 12:48:33 by jeson            ###   ########.fr        #
+#    Updated: 2021/01/22 12:53:08 by jeson            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,9 @@ FILES = ft_atoi.c\
 		ft_strtrim.c\
 		ft_substr.c\
 		ft_tolower.c\
-		ft_toupper.c\
-		ft_lstnew.c\
+		ft_toupper.c
+
+SRC_B = ft_lstnew.c\
 	  	ft_lstadd_front.c\
 	  	ft_lstsize.c\
 	  	ft_lstlast.c\
@@ -62,11 +63,12 @@ FILES = ft_atoi.c\
 		ft_lstmap.c
 
 OBJS = $(SRC:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-bonus: $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
 	$(AR) $(NAME) $^
 
 all: $(NAME)
