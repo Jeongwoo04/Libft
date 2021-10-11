@@ -6,13 +6,13 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:10:22 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 15:39:16 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:18:21 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 

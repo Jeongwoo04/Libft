@@ -6,7 +6,7 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:02:56 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 16:26:54 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:41:03 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long int	ft_abs(long int nbr)
 		return (nbr);
 }
 
-int			ft_len(long int nbr)
+int	ft_len(long int nbr)
 {
 	int		len;
 
@@ -36,7 +36,7 @@ int			ft_len(long int nbr)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	int		sign;
@@ -47,7 +47,8 @@ char		*ft_itoa(int n)
 	else
 		sign = 1;
 	len = ft_len(n);
-	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (NULL);
 	res[len] = '\0';
 	len--;

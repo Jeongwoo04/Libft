@@ -6,13 +6,13 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:59:33 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 16:11:02 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:32:31 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	size_t	s_len;
 

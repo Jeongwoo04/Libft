@@ -6,13 +6,13 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 22:29:28 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 16:16:25 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:38:55 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			i;
 	long int	result;

@@ -6,13 +6,13 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:08:25 by jeson             #+#    #+#             */
-/*   Updated: 2021/01/21 15:39:28 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:19:38 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*tmp;
 

@@ -6,120 +6,96 @@
 /*   By: jeson <jeson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:01:44 by jeson             #+#    #+#             */
-/*   Updated: 2021/07/03 16:58:05 by jeson            ###   ########.fr       */
+/*   Updated: 2021/10/11 15:56:25 by jeson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_split_size(char const *s, char c)
+static char	**ft_error(char **res)
 {
-	int res;
-	int check;
-	int i;
+	int		i;
 
-	res = 0;
-	check = 0;
 	i = 0;
-	while (s[i])
+	while (res[i])
 	{
-		if (s[i] != c)
-		{
-			if (check == 0)
-				++res;
-			check = 1;
-		}
-		else
-			check = 0;
-		++i;
+		free(res[i]);
+		i++;
 	}
-	return (res);
+	free(res);
+	return (NULL);
 }
 
-static char	*get_split_child(char const *s, char c, int i)
+static int	ft_cnt_res(char const *s, char c)
 {
-	char	*res;
-	int		start;
-	int		end;
-	int		j;
+	int		i;
+	int		cnt_res;
 
-	start = i;
+	if (!s[0])
+		return (0);
+	i = 0;
+	cnt_res = 0;
+	while (s[i] && s[i] == c)
+		i++;
 	while (s[i])
 	{
 		if (s[i] == c)
-			break ;
-		++i;
-	}
-	end = i;
-	res = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (!res)
-		return (NULL);
-	j = 0;
-	while (start < end)
-		res[j++] = s[start++];
-	res[j] = 0;
-	return (res);
-}
-
-static void	get_split_parent(char **ptr, char const *s, char c)
-{
-	int index;
-	int check;
-	int i;
-
-	index = 0;
-	check = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
 		{
-			if (check == 0)
-				ptr[index++] = get_split_child(s, c, i);
-			check = 1;
+			cnt_res++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
 		}
-		else
-			check = 0;
-		++i;
+		i++;
 	}
-	ptr[index] = 0;
+	if (s[i - 1] != c)
+		cnt_res++;
+	return (cnt_res);
 }
 
-void		free_split(char **ptr)
+static void	ft_get_child(char **res_child, int *child_len, char c)
 {
-	int i;
-
-	i = 0;
-	while (ptr[i])
-	{
-		free(ptr[i]);
-		++i;
-	}
-	free(ptr);
-}
-
-char		**ft_split(char const *s, char c)
-{
-	char	**ptr;
-	int		size;
 	int		i;
 
-	if (s == NULL)
-		return (NULL);
-	size = get_split_size(s, c);
-	ptr = (char **)malloc(sizeof(char *) * (size + 1));
-	if (!ptr)
-		return (NULL);
-	get_split_parent(ptr, s, c);
+	*res_child += *child_len;
+	*child_len = 0;
 	i = 0;
-	while (i < size)
+	while (**res_child && **res_child == c)
+		(*res_child)++;
+	while ((*res_child)[i])
 	{
-		if (ptr[i] == NULL)
-		{
-			free_split(ptr);
-			return (NULL);
-		}
-		++i;
+		if ((*res_child)[i] == c)
+			return ;
+		(*child_len)++;
+		i++;
 	}
-	return (ptr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+	char	*res_child;
+	int		child_len;
+	int		cnt_res;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	cnt_res = ft_cnt_res(s, c);
+	res = (char **)malloc(sizeof(char *) * (cnt_res + 1));
+	if (!res)
+		return (NULL);
+	res_child = (char *)s;
+	child_len = 0;
+	i = -1;
+	while (++i < cnt_res)
+	{
+		ft_get_child(&res_child, &child_len, c);
+		res[i] = (char *)malloc(sizeof(char) * (child_len + 1));
+		if (!res[i])
+			return (ft_error(res));
+		ft_strlcpy(res[i], res_child, child_len + 1);
+	}
+	res[i] = NULL;
+	return (res);
 }
